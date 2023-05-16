@@ -29,6 +29,14 @@ jobs:
             # search_commit_body: true
             # If this is set to true, *every* commit will be treated as a new version.
             bump_each_commit: true
+        - name: Make Scripts Executable
+          run: |
+            chmod +x ./*.sh
+        - name: Commit & Push Change
+          uses: actions-js/push@master
+          with:
+            message: Executable Files
+            github_token: ${{ secrets.GITHUB_TOKEN }}
         - name: Create Release
           uses: ncipollo/release-action@v1
           with:
